@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnal.Application", "Cod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnal.Domain", "CodeAnal.Domain\CodeAnal.Domain.csproj", "{B19644F8-A5FC-48D8-85AF-282BC6A29597}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnal.Cli", "CodeAnal.Cli\CodeAnal.Cli.csproj", "{6C81E620-9C2D-49AD-AD33-BE48CDF35E17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B19644F8-A5FC-48D8-85AF-282BC6A29597}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B19644F8-A5FC-48D8-85AF-282BC6A29597}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B19644F8-A5FC-48D8-85AF-282BC6A29597}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C81E620-9C2D-49AD-AD33-BE48CDF35E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C81E620-9C2D-49AD-AD33-BE48CDF35E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C81E620-9C2D-49AD-AD33-BE48CDF35E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C81E620-9C2D-49AD-AD33-BE48CDF35E17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

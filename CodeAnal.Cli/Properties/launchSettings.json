@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2",
+      "environmentVariables": {},
+      "distributionName": ""
+    },
+    "selectFromFile": {
+      "commandName": "Project",
+      "commandLineArgs": "selectFromFile C:\\Users\\k-kal\\Documents\\Игонин\\Егорова\\CodeAnal\\CodeAnal.Application\\CodeAnal.Application.csproj"
+    }
+  }
+}

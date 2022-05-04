@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Build" Version="17.1.0" />
+    <PackageReference Include="Microsoft.Build.Engine" Version="17.1.0" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CodeAnal.Domain\CodeAnal.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

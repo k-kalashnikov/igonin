@@ -15,7 +15,7 @@ namespace CodeAnal.Cli
             Mediator = mediatR;
         }
 
-        public async void Invoke(string[] args)
+        public void Invoke(string[] args)
         {
             Args = args;
             var commandType = GetCommandType();
@@ -27,7 +27,7 @@ namespace CodeAnal.Cli
                 index++;
             }
 
-            Result = await Mediator.Send(command);
+            Result = Mediator.Send(command).Result;
         }
         public void OutputToConsole()
         {

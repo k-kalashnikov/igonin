@@ -2,6 +2,7 @@
 using MediatR;
 using System.Diagnostics;
 using System.Reflection;
+using System.Threading;
 
 namespace CodeAnal.Application.Project.Commands
 {
@@ -20,25 +21,20 @@ namespace CodeAnal.Application.Project.Commands
             Process buildProcess = new Process();
             ProcessStartInfo buildProcessStartInfo = new System.Diagnostics.ProcessStartInfo();
             buildProcessStartInfo.FileName = "C:\\Program Files\\dotnet\\dotnet.exe";
-            buildProcessStartInfo.Arguments = $"--output \".\\output\" \"{request.FilePath}\"";
-            buildProcessStartInfo.RedirectStandardOutput = true;
-            buildProcessStartInfo.RedirectStandardError = true;
-
+            buildProcessStartInfo.Arguments = $"build --output \".\\output\" \"{request.FilePath}\"";
             buildProcess.StartInfo = buildProcessStartInfo;
-
-            buildProcess.OutputDataReceived += OutputDataReceived;
-            buildProcess.ErrorDataReceived += OutputDataReceived;
 
             Console.WriteLine($"{nameof(SelectProjectFromFileHandler)} - start process {buildProcess.StartInfo.FileName} {buildProcess.StartInfo.Arguments}");
 
             buildProcess.Start();
-            buildProcess.WaitForExit();
+            Thread.Sleep(TimeSpan.FromSeconds(15));
 
-            var assembly = Assembly.LoadFile($"\".\\output{Path.GetFileNameWithoutExtension(request.FilePath)}.dll\"");
+            var assembly = Assembly.LoadFile(Path.Combine(Directory.GetCurrentDirectory(), $"output\\{Path.GetFileNameWithoutExtension(request.FilePath)}.dll"));
             var result = new CodeAnal.Domain.Entities.Project();
             var classes = new List<Domain.Entities.Class>();
+            var types = assembly.GetTypes();
 
-            foreach (var item in assembly.GetTypes())
+            foreach (var item in types.Where(m => m.IsClass))
             {
                 classes.Add(new Domain.Entities.Class()
                 {
